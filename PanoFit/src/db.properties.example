@@ -1,0 +1,7 @@
+# Copie este arquivo para "db.properties" (na mesma pasta src/) e preencha a senha.
+# O db.properties não vai para o git.
+db.host=localhost
+db.porta=3306
+db.banco=panofit
+db.usuario=root
+db.senha=COLOQUE_SUA_SENHA_AQUI

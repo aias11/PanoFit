@@ -1,0 +1,53 @@
+@startuml PanoFit - Casos de Uso
+left to right direction
+skinparam packageStyle rectangle
+skinparam usecase {
+  BackgroundColor #FFFFFF
+  BorderColor #333333
+}
+
+actor "Funcionário" as Func
+actor "Gerente" as Gerente
+actor "Treinador" as Treinador
+actor "Cliente" as Cliente
+
+Gerente -|> Func
+Treinador -|> Func
+
+rectangle "Sistema PanoFit" {
+  usecase "Fazer login" as UC01
+  usecase "Gerenciar clientes" as UC02
+  usecase "Selecionar plano\nde assinatura" as UC03
+  usecase "Controlar pagamento\nde clientes" as UC04
+  usecase "Gerenciar funcionários" as UC05
+  usecase "Selecionar cargo" as UC06
+  usecase "Gerenciar planos\nde assinatura" as UC07
+  usecase "Controlar pagamento\nde funcionários" as UC08
+  usecase "Montar ficha de treino" as UC09
+  usecase "Buscar aluno" as UC10
+  usecase "Ver resumo da conta" as UC11
+  usecase "Consultar meus treinos" as UC12
+  usecase "Finalizar treino" as UC13
+  usecase "Consultar dados e plano" as UC14
+}
+
+Func --> UC01
+Func --> UC02
+Func --> UC04
+
+Gerente --> UC05
+Gerente --> UC07
+Gerente --> UC08
+
+Treinador --> UC09
+
+UC02 ..> UC03 : <<include>>
+UC05 ..> UC06 : <<include>>
+UC09 ..> UC10 : <<include>>
+
+Cliente --> UC01
+Cliente --> UC11
+Cliente --> UC12
+Cliente --> UC14
+UC13 ..> UC12 : <<extend>>
+@enduml
